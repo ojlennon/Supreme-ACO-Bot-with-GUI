@@ -7,4 +7,6 @@ The project is in the works as of now, so it does not work
 
 HOW TO RUN 
 
+pip install -r requirements.txt
+
 Run the Config.py file 
