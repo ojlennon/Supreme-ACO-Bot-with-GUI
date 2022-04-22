@@ -2,41 +2,28 @@ from tkinter import *
 import os
 import sys
 window = Tk()
+window.title("Supreme Bot")
 name = ""
-
 import subprocess
+import UserDetails
  
 def run_program():
     subprocess.call(["python3", "bot.py"])
  
 Button(window, text='Run', command=run_program) .grid(row=40, column=20, sticky=W)
-
+# user = UserDetails("", "", "", "", "", "", "","","","","","","","")
 
 def setInfo():
-    user.name = nameentry.get()
-    user.email = emailentry.get()
-    user.tele = teleentry.get()
-    user.adr = adrentry.get()
-    user.city = cityentry.get()
-    user2.keywords = keywordsentry.get()
-    user2.colour = colourentry.get()
-    user2.size = sizeentry.get()
-    user3.cardNum = cardNumentry.get()
-    user3.cvv = cvventry.get()
-    user3.month = monthentry.get()
+    return UserDetails(nameentry.get(), emailentry.get(), teleentry.get(), adrentry.get(), zipentry.get(), cityentry.get(), stateentry.get(), keywordsentry.get(), colourentry.get(), sizeentry.get(), cardNumentry.get(), cvventry.get(),monthentry.get(), yearentry.get())
+
+
 
 class ChromeOptions:
     CHROME_DRIVER_PATH = '/Users/jasperkatalevsky/Desktop/chromedriver'
 
-class ProductDetails:
-    def __init__(self, keywords, colour, size):
-        self.keywords = keywords
-        self.colour = colour
-        self.size = size
-    
-
-user2 = ProductDetails("", "", "")
-
+# def tkWindow():
+# global keywordsentry, nameentry, emailentry, zipentry, teleentry, adrentry, cityentry, stateentry, colourentry, sizeentry, cardNumentry, cvventry, monthentry, yearentry
+ 
 Label(window, text='Product', background='black', fg= 'white', font='none 12 bold') .grid(row=15, column=0, sticky=W)
 keywordsentry = Entry(window, width=20, bg="black")
 keywordsentry.grid(row=16, column=0, sticky=W)
@@ -48,22 +35,6 @@ colourentry.grid(row=18, column=0, sticky=W)
 Label(window, text='Size', background='black', fg= 'white', font='none 12 bold') .grid(row=19, column=0, sticky=W)
 sizeentry = Entry(window, width=20, bg="black")
 sizeentry.grid(row=20, column=0, sticky=W)
-
-
-
-
-class UserDetails:
-    def __init__(self, name, email, tele, adr, zip, city, state):
-        self.name = name
-        self.email = email 
-        self.tele = tele
-        self.adr = adr
-        self.zip = zip
-        self.city = city
-        self.state = state
-
-    
-user = UserDetails("", "", "", "", "", "", "")
 
 Label(window, text='Name', background='black', fg= 'white', font='none 12 bold') .grid(row=1, column=0, sticky=W)
 nameentry = Entry(window, width=20, bg="black")
@@ -90,17 +61,8 @@ cityentry = Entry(window, width=20, bg="black")
 cityentry.grid(row=12, column=0, sticky=W)
 
 Label(window, text='State (CO)', background='black', fg= 'white', font='none 12 bold') .grid(row=13, column=0, sticky=W)
-zipentry = Entry(window, width=20, bg="black")
-zipentry.grid(row=14, column=0, sticky=W)
-
-class PaymentDetails():
-    def __init__(self, cardNum, cvv, month, year):
-        self.cardNum = cardNum
-        self.cvv = cvv
-        self.month = month
-        self.year = year 
-
-user3 = PaymentDetails("", "", "", "")
+stateentry = Entry(window, width=20, bg="black")
+stateentry.grid(row=14, column=0, sticky=W)
 
 Label(window, text='Card Number', background='black', fg= 'white', font='none 12 bold') .grid(row=21, column=0, sticky=W)
 cardNumentry = Entry(window, width=20, bg="black")
@@ -110,9 +72,13 @@ Label(window, text='CVV', background='black', fg= 'white', font='none 12 bold') 
 cvventry = Entry(window, width=20, bg="black")
 cvventry.grid(row=24, column=0, sticky=W)
 
-Label(window, text='Month (XX/XX)', background='black', fg= 'white', font='none 12 bold') .grid(row=25, column=0, sticky=W)
+Label(window, text='Month', background='black', fg= 'white', font='none 12 bold') .grid(row=25, column=0, sticky=W)
 monthentry = Entry(window, width=20, bg="black")
 monthentry.grid(row=26, column=0, sticky=W)
+
+Label(window, text='Year', background='black', fg= 'white', font='none 12 bold') .grid(row=27, column=0, sticky=W)
+yearentry = Entry(window, width=20, bg="black")
+yearentry.grid(row=28, column=0, sticky=W)
 
 Button(window, text='Submit', width=6, command = setInfo) .grid(row=40, column=0, sticky=W)
 exit_button = Button(window, text="Close", command=window.destroy) .grid(row=55, column=0, sticky=W)
