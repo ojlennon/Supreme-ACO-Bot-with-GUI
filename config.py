@@ -6,7 +6,6 @@ window = Tk()
 name = ""
 
 import subprocess
-import bot
 from selenium.webdriver.support import expected_conditions as EC, select
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.ui import WebDriverWait
@@ -143,11 +142,11 @@ Label(window, text='CVV', background='black', fg='white', font='none 12 bold').g
 cvventry = Entry(window, width=20, bg="black")
 cvventry.grid(row=24, column=0, sticky=W)
 
-Label(window, text='Month (XX/XX)', background='black', fg='white', font='none 12 bold').grid(row=25, column=0,sticky=W)
+Label(window, text='Month (XX)', background='black', fg='white', font='none 12 bold').grid(row=25, column=0,sticky=W)
 monthentry = Entry(window, width=20, bg="black")
 monthentry.grid(row=26, column=0, sticky=W)
 
-Label(window, text="Year", background='black', fg='white', font='none 12 bold').grid(row=27, column=0,sticky=W)
+Label(window, text="Year(20xx)", background='black', fg='white', font='none 12 bold').grid(row=27, column=0,sticky=W)
 yearentry = Entry(window, width=20, bg="black")
 yearentry.grid(row=28,column=0,stick=W)
 
